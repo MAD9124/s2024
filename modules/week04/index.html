@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Week 4: Project Structure, RESTful alternatives, and Postman | MAD9124</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="Full-stack: API Development">
+    
+    <link rel="preload" href="/s2024/assets/css/0.styles.70738741.css" as="style"><link rel="preload" href="/s2024/assets/js/app.40d35fb0.js" as="script"><link rel="preload" href="/s2024/assets/js/2.d13f26af.js" as="script"><link rel="preload" href="/s2024/assets/js/1.f6f71081.js" as="script"><link rel="preload" href="/s2024/assets/js/46.286df3e7.js" as="script"><link rel="preload" href="/s2024/assets/js/32.baab7363.js" as="script"><link rel="prefetch" href="/s2024/assets/js/10.700b6097.js"><link rel="prefetch" href="/s2024/assets/js/11.ed8a0934.js"><link rel="prefetch" href="/s2024/assets/js/12.9b4b523d.js"><link rel="prefetch" href="/s2024/assets/js/13.07dd1a9d.js"><link rel="prefetch" href="/s2024/assets/js/14.b96c24af.js"><link rel="prefetch" href="/s2024/assets/js/15.b144383e.js"><link rel="prefetch" href="/s2024/assets/js/16.d16dea2a.js"><link rel="prefetch" href="/s2024/assets/js/17.b4e1a4e8.js"><link rel="prefetch" href="/s2024/assets/js/18.1f2ac466.js"><link rel="prefetch" href="/s2024/assets/js/19.e668708c.js"><link rel="prefetch" href="/s2024/assets/js/20.4f30b3de.js"><link rel="prefetch" href="/s2024/assets/js/21.248f91f3.js"><link rel="prefetch" href="/s2024/assets/js/22.29f49c1a.js"><link rel="prefetch" href="/s2024/assets/js/23.b8ac89c9.js"><link rel="prefetch" href="/s2024/assets/js/24.e2934475.js"><link rel="prefetch" href="/s2024/assets/js/25.fce0b0a1.js"><link rel="prefetch" href="/s2024/assets/js/26.de8d994d.js"><link rel="prefetch" href="/s2024/assets/js/27.c7ef8247.js"><link rel="prefetch" href="/s2024/assets/js/28.75604c91.js"><link rel="prefetch" href="/s2024/assets/js/29.1b506275.js"><link rel="prefetch" href="/s2024/assets/js/3.8c4cc701.js"><link rel="prefetch" href="/s2024/assets/js/30.787c7c10.js"><link rel="prefetch" href="/s2024/assets/js/31.e47a0c3f.js"><link rel="prefetch" href="/s2024/assets/js/33.aa620044.js"><link rel="prefetch" href="/s2024/assets/js/34.81206c0b.js"><link rel="prefetch" href="/s2024/assets/js/35.d62ca566.js"><link rel="prefetch" href="/s2024/assets/js/36.1835e393.js"><link rel="prefetch" href="/s2024/assets/js/37.5098b7b5.js"><link rel="prefetch" href="/s2024/assets/js/38.3ddeba96.js"><link rel="prefetch" href="/s2024/assets/js/39.3f5b8ef9.js"><link rel="prefetch" href="/s2024/assets/js/4.a03d1287.js"><link rel="prefetch" href="/s2024/assets/js/40.b63f2a79.js"><link rel="prefetch" href="/s2024/assets/js/41.5cb461bc.js"><link rel="prefetch" href="/s2024/assets/js/42.fcb0df3f.js"><link rel="prefetch" href="/s2024/assets/js/43.3a92d7d8.js"><link rel="prefetch" href="/s2024/assets/js/44.5c466f1c.js"><link rel="prefetch" href="/s2024/assets/js/45.c7c3dc1a.js"><link rel="prefetch" href="/s2024/assets/js/47.8363bb83.js"><link rel="prefetch" href="/s2024/assets/js/48.56c3e93e.js"><link rel="prefetch" href="/s2024/assets/js/49.b0be2d4e.js"><link rel="prefetch" href="/s2024/assets/js/5.ed6c1368.js"><link rel="prefetch" href="/s2024/assets/js/50.b89e2a53.js"><link rel="prefetch" href="/s2024/assets/js/51.7249e197.js"><link rel="prefetch" href="/s2024/assets/js/52.87fc5cdd.js"><link rel="prefetch" href="/s2024/assets/js/53.56f24714.js"><link rel="prefetch" href="/s2024/assets/js/54.fae6ee81.js"><link rel="prefetch" href="/s2024/assets/js/55.b1e6a4dd.js"><link rel="prefetch" href="/s2024/assets/js/56.eadf21bf.js"><link rel="prefetch" href="/s2024/assets/js/57.d912e614.js"><link rel="prefetch" href="/s2024/assets/js/6.45d9b7e6.js"><link rel="prefetch" href="/s2024/assets/js/7.017a2e0d.js"><link rel="prefetch" href="/s2024/assets/js/vendors~docsearch.38838867.js">
+    <link rel="stylesheet" href="/s2024/assets/css/0.styles.70738741.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/s2024/" class="home-link router-link-active"><!----> <span class="site-name">MAD9124</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/s2024/overview/" class="nav-link">
+  Overview
+</a></div><div class="nav-item"><a href="/s2024/modules/" class="nav-link router-link-active">
+  Modules
+</a></div><div class="nav-item"><a href="/s2024/deliverables/" class="nav-link">
+  Deliverables
+</a></div><div class="nav-item"><a href="/s2024/resources/" class="nav-link">
+  Resources
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/s2024/overview/" class="nav-link">
+  Overview
+</a></div><div class="nav-item"><a href="/s2024/modules/" class="nav-link router-link-active">
+  Modules
+</a></div><div class="nav-item"><a href="/s2024/deliverables/" class="nav-link">
+  Deliverables
+</a></div><div class="nav-item"><a href="/s2024/resources/" class="nav-link">
+  Resources
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Introduction</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Content Modules</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/s2024/modules/" aria-current="page" class="sidebar-link">Table of contents</a></li><li><a href="/s2024/modules/week01/" class="sidebar-link">Week 1: Introduction &amp; Review</a></li><li><a href="/s2024/modules/week02/" class="sidebar-link">Week 2: Node Modules &amp; Express</a></li><li><a href="/s2024/modules/week03/" class="sidebar-link">Week 3: APIs</a></li><li><a href="/s2024/modules/week04/" aria-current="page" class="active sidebar-link">Week 4: Project Structure, RESTful alternatives, and Postman</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/s2024/modules/week04/#agenda" class="sidebar-link">Agenda</a></li><li class="sidebar-sub-header"><a href="/s2024/modules/week04/#our-file-structure" class="sidebar-link">Our File Structure</a></li><li class="sidebar-sub-header"><a href="/s2024/modules/week04/#graphql" class="sidebar-link">GraphQL</a></li><li class="sidebar-sub-header"><a href="/s2024/modules/week04/#testing-with-postman" class="sidebar-link">Testing with Postman</a></li><li class="sidebar-sub-header"><a href="/s2024/modules/week04/#assignment-1-basic-crud-30-mins" class="sidebar-link">Assignment 1: Basic CRUD (30 mins)</a></li></ul></li><li><a href="/s2024/modules/week05/" class="sidebar-link">Week 5: Middleware</a></li><li><a href="/s2024/modules/week06/" class="sidebar-link">Week 6: Midterm Project</a></li><li><a href="/s2024/modules/week07/" class="sidebar-link">Week 7: API Integration &amp; Caching</a></li><li><a href="/s2024/modules/break-week/" class="sidebar-link">Break Week</a></li><li><a href="/s2024/modules/week09/" class="sidebar-link">Week 9: Data Persitance and MongoDB</a></li><li><a href="/s2024/modules/week10/" class="sidebar-link">Week 10: Object Data Modelling with Mongoose</a></li><li><a href="/s2024/modules/week11/" class="sidebar-link">Week 11: Data Santization, XSS and LoggingS</a></li><li><a href="/s2024/modules/week12/" class="sidebar-link">Week 12: Authentication With Passport</a></li><li><a href="/s2024/modules/week13/" class="sidebar-link">Week 13: Testing with Jest</a></li><li><a href="/s2024/modules/week14/" class="sidebar-link">Week 14: Preparing for Production</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1><span class="week">Week 4</span><br> <span class="title">Project Structure, RESTful alternatives, and Postman</span></h1> <div class="custom-block warning"><p class="custom-block-title">Assignment Reminder</p> <p><a href="/s2024/deliverables/assignment1.html">Assignment 1 - Basic CRUD</a> - is due <strong>before</strong> next week's class.</p></div> <h2 id="agenda"><a href="#agenda" class="header-anchor">#</a> Agenda</h2> <ul><li>AMA (15 min)</li> <li>Our File Structure</li> <li>GraphQL</li> <li>Testing with Postman</li> <li>Assignment 1: Basic CRUD (30 mins)</li></ul> <h2 id="our-file-structure"><a href="#our-file-structure" class="header-anchor">#</a> Our File Structure</h2> <p>As we add more and more complex code to our project, our index.js file will start to grow. To keep things simple and organized, we will be following the following file structure from now on:</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># for our application with a Car resource</span>
+- node_modules/
+- src/
+  - controllers/
+    - cars.js <span class="token comment"># this will contain the route handlers</span>
+  - models/
+    - cars.js <span class="token comment"># this will contain the cars array</span>
+  - routers/
+    - cars.js <span class="token comment"># this will contain the routers</span>
+
+  <span class="token comment">#  coming soon | we will go even further once we introduce error handling</span>
+  <span class="token comment"># - services/</span>
+  <span class="token comment">#   - cars.js # this will contain the business logic</span>
+  index.js
+package.json
+package-lock.json
+</code></pre></div><p>Lets start with <code>src/index.js</code>, and refactor our code to have just the basic setup in this file.</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// src/index.js</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;express&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> carRouter <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./routers/cars.js&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">&quot;/api/cars&quot;</span><span class="token punctuation">,</span> carRouter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// this is a handy way to respond with status 404</span>
+<span class="token comment">// for any requests that do not match our defined routes.</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">&quot;*&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">_req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;404 | Not found&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token constant">PORT</span> <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">PORT</span> <span class="token operator">||</span> <span class="token number">4000</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token constant">PORT</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">App listening on port </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">PORT</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>We can move all of our car routes into a designated router file. Make sure to import it at the top of your file!</p> <p>In our <code>/routers/cars.js</code>, we can add all the logic taken from <code>index.js</code>.</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// routers/cars.js</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/api/cars/&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">_req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> cars<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/api/cars/:id&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> car <span class="token operator">=</span> cars<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> car<span class="token punctuation">.</span>id <span class="token operator">===</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>car<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Car with id </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> not found</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> car<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">&quot;/api/cars/&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> id <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> make<span class="token punctuation">,</span> model<span class="token punctuation">,</span> colour <span class="token punctuation">}</span> <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>make <span class="token operator">||</span> <span class="token operator">!</span>model <span class="token operator">||</span> <span class="token operator">!</span>colour<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;Invalid input&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> car <span class="token operator">=</span> <span class="token punctuation">{</span>
+    id<span class="token punctuation">,</span>
+    make<span class="token punctuation">,</span>
+    model<span class="token punctuation">,</span>
+    colour<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  cars<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> car<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;/api/cars/:id&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> carIndex <span class="token operator">=</span> cars<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> car<span class="token punctuation">.</span>id <span class="token operator">===</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> make<span class="token punctuation">,</span> model<span class="token punctuation">,</span> colour <span class="token punctuation">}</span> <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>make <span class="token operator">||</span> <span class="token operator">!</span>model <span class="token operator">||</span> <span class="token operator">!</span>colour<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;Invalid input&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> newCar <span class="token operator">=</span> <span class="token punctuation">{</span>
+    id<span class="token punctuation">,</span>
+    make<span class="token punctuation">,</span>
+    model<span class="token punctuation">,</span>
+    colour<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  cars<span class="token punctuation">[</span>carIndex<span class="token punctuation">]</span> <span class="token operator">=</span> newCar<span class="token punctuation">;</span>
+
+  res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> newCar<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">patch</span><span class="token punctuation">(</span><span class="token string">&quot;/api/cars/:id&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Done for exercise 3</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">&quot;/api/cars/:id&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Done for exercise 3</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>We can further simplify this code by move the request handlers into their own file!</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// src/controllers/cars.js</span>
+
+<span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../models/cars.js&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">getAll</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">_req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> cars<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">getOne</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> car <span class="token operator">=</span> cars<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> car<span class="token punctuation">.</span>id <span class="token operator">===</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>car<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">404</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Car with id </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> not found</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> car<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">create</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> id <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> make<span class="token punctuation">,</span> model<span class="token punctuation">,</span> colour <span class="token punctuation">}</span> <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>make <span class="token operator">||</span> <span class="token operator">!</span>model <span class="token operator">||</span> <span class="token operator">!</span>colour<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;Invalid input&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> car <span class="token operator">=</span> <span class="token punctuation">{</span>
+    id<span class="token punctuation">,</span>
+    make<span class="token punctuation">,</span>
+    model<span class="token punctuation">,</span>
+    colour<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  cars<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> car<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">replace</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> carIndex <span class="token operator">=</span> cars<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> car<span class="token punctuation">.</span>id <span class="token operator">===</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> make<span class="token punctuation">,</span> model<span class="token punctuation">,</span> colour <span class="token punctuation">}</span> <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>make <span class="token operator">||</span> <span class="token operator">!</span>model <span class="token operator">||</span> <span class="token operator">!</span>colour<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;Invalid input&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> newCar <span class="token operator">=</span> <span class="token punctuation">{</span>
+    id<span class="token punctuation">,</span>
+    make<span class="token punctuation">,</span>
+    model<span class="token punctuation">,</span>
+    colour<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  cars<span class="token punctuation">[</span>carIndex<span class="token punctuation">]</span> <span class="token operator">=</span> newCar<span class="token punctuation">;</span>
+
+  res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> newCar<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">update</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Done for exercise 3</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">deleteOne</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Done for exercise 3</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  getAll<span class="token punctuation">,</span>
+  getOne<span class="token punctuation">,</span>
+  create<span class="token punctuation">,</span>
+  replace<span class="token punctuation">,</span>
+  update<span class="token punctuation">,</span>
+  deleteOne<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>Now, the router file is only in charge of defining the routes.</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// src/routers/cars.js</span>
+
+<span class="token keyword">const</span> carController <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../controllers/cars.js&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>getAll<span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/:id&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>getOne<span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>create<span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;/:id&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>replace<span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">patch</span><span class="token punctuation">(</span><span class="token string">&quot;/:id&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>update<span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">&quot;/:id&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>deleteOne<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Finally, app is not defined in our car router file. Luckily, express exports a <code>Router</code> function that we can call to create a router. We can then export this router, to be used in <code>src/index.js</code>.</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// src/routers/cars.js</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> Router <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;express&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> carController <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../controllers/cars.js&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> carRouter <span class="token operator">=</span> <span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+carRouter<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>getAll<span class="token punctuation">)</span><span class="token punctuation">;</span>
+carRouter<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/:id&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>getOne<span class="token punctuation">)</span><span class="token punctuation">;</span>
+carRouter<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>create<span class="token punctuation">)</span><span class="token punctuation">;</span>
+carRouter<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;/:id&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>replace<span class="token punctuation">)</span><span class="token punctuation">;</span>
+carRouter<span class="token punctuation">.</span><span class="token function">patch</span><span class="token punctuation">(</span><span class="token string">&quot;/:id&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>update<span class="token punctuation">)</span><span class="token punctuation">;</span>
+carRouter<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">&quot;/:id&quot;</span><span class="token punctuation">,</span> carController<span class="token punctuation">.</span>deleteOne<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> carRouter<span class="token punctuation">;</span>
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">We are not done yet!</p> <p>It is best practice to completely separate the business logic from the route handling. We cannot do this in an elegant way until we learn about Error Handling, so for now we will leave it here.</p> <p>Ideally, the controller will only be in charge of extracting data from the request, send that data to a Service to perform the logic and responding with the appropriate response.</p></div> <h2 id="graphql"><a href="#graphql" class="header-anchor">#</a> GraphQL</h2> <h4 id="what-is-graphql"><a href="#what-is-graphql" class="header-anchor">#</a> What is GraphQL</h4> <p>GraphQL is a query language for APIs and a runtime for executing those queries against your data. It was developed and open-sourced by Facebook in 2015. GraphQL allows client applications to request only the specific data they need, and it allows for more efficient and flexible communication between the client and the server. It is often used as an alternative to RESTful API architecture.</p> <h4 id="examples-of-graphql"><a href="#examples-of-graphql" class="header-anchor">#</a> Examples of GraphQL</h4> <p>Here are a few examples of how GraphQL can be used:</p> <ul><li><p>Retrieving information about a specific user: A client application can send a query that requests the name, email, and address of a user with a specific ID. The server can then respond with only the requested information.</p></li> <li><p>Updating multiple fields on an object: A client application can send a single mutation (a special kind of query) that updates the name, email, and address of a user with a specific ID all in one request, rather than having to send multiple requests to update each field individually.</p></li> <li><p>Filtering a list of items: A client application can request a list of items, but also specify certain filters to apply to the list. For example, it can request a list of all &quot;red&quot; items that are priced under $50.</p></li> <li><p>Nested queries: A client can request a complex object and its related object, like asking a question &quot;give me all the books of a specific author and also give me all the comments made by the readers on the book&quot;</p></li></ul> <p>These are just a few examples, but GraphQL's flexibility allows for many other use cases as well.</p> <h4 id="code-examples-of-graphql"><a href="#code-examples-of-graphql" class="header-anchor">#</a> Code examples of GraphQL</h4> <p>Here's an example of a GraphQL query that retrieves information about a specific user:</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">query</span> <span class="token punctuation">{</span>
+  <span class="token property-query">user</span><span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token string">&quot;123&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property">name</span>
+    <span class="token property">email</span>
+    <span class="token property">address</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>And here's an example of a GraphQL mutation that updates multiple fields on a user object:</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">mutation</span> <span class="token punctuation">{</span>
+  <span class="token property-query property-mutation">updateUser</span><span class="token punctuation">(</span>
+    <span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token description string">&quot;<span class="token language-markdown">123</span>&quot;</span>
+    <span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token description string">&quot;<span class="token language-markdown">John Smith</span>&quot;</span>
+    <span class="token attr-name">email</span><span class="token punctuation">:</span> <span class="token description string">&quot;<span class="token language-markdown">john@example.com</span>&quot;</span>
+    <span class="token attr-name">address</span><span class="token punctuation">:</span> <span class="token string">&quot;123 Main St&quot;</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property">name</span>
+    <span class="token property">email</span>
+    <span class="token property">address</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>And here's an example of a GraphQL query that gets all the books of a specific author and also gives all the comments made by the readers on the book</p> <div class="language-graphql extra-class"><pre class="language-graphql"><code><span class="token keyword">query</span> <span class="token punctuation">{</span>
+  <span class="token property-query">author</span><span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property">name</span>
+    <span class="token object">books</span> <span class="token punctuation">{</span>
+      <span class="token property">title</span>
+      <span class="token object">comments</span> <span class="token punctuation">{</span>
+        <span class="token property">text</span>
+        <span class="token object">user</span> <span class="token punctuation">{</span>
+          <span class="token property">name</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>These examples are written in the GraphQL query language and they can be sent to a GraphQL server, which would then execute the query and return the requested data.</p> <p>It's worth noting that the GraphQL query language is agnostic to the programming language or framework you're using, so the examples above can be used in any language or framework that has a GraphQL library or implementation.</p> <h2 id="testing-with-postman"><a href="#testing-with-postman" class="header-anchor">#</a> Testing with Postman</h2> <p>Manual testing with Postman is a powerful way to test your API's functionality and behavior. Here are a few more tips for testing your API using Postman:</p> <ul><li>Use the <code>Save</code> button to save your requests in a collection, so you can run them again later or share them with others.</li> <li>Use the <code>Duplicate</code> button to make a copy of a request, so you can easily create similar requests with slight modifications.</li> <li>Use the <code>History</code> tab to view a history of all the requests you've made, and quickly re-run any of them.</li> <li>Use the <code>Tests</code> tab to write test scripts in JavaScript, you can use these scripts to perform assertions on the response, set environment variables, or even generate data for the next request.</li> <li>Use the <code>Pre-request</code> Script&quot; tab to write scripts that run before the request is sent, you can use these scripts to generate data, set variables, or even modify the request.</li> <li>Use the <code>Variables</code> tab to manage environment variables, you can use these variables to store and reuse values such as API keys and URLs.</li> <li>Use the <code>Auth</code> tab to set up authentication for your request, you can use this feature to test your API's authentication and authorization functionality.</li> <li>Use the <code>Headers</code> tab to add or modify headers for your request, you can use this feature to test your API's functionality that depends on headers, such as content-type or user-agent</li> <li>Use the <code>Body</code> tab to add or modify the body of your request, you can use this feature to test your API's functionality that depends on the body of the request, such as a JSON payload</li> <li>Use the <code>Send and download</code> button to download the response as a file, you can use this feature to test your API's functionality that returns files.</li></ul> <p>By following these tips, you can take full advantage of Postman's features and capabilities to test your API effectively and efficiently.</p> <p>Looking to learn about Advanced option about Postman, follow along:</p> <ul><li>Use the <code>Environment</code> feature to easily switch between different environments, such as development, staging, and production. This allows you to test your API in different configurations, and to ensure that it behaves correctly in each environment.</li> <li>Use the <code>Runner</code> feature to run a collection of requests in a specific order and with specific data. This allows you to test your API's functionality that depends on multiple requests, such as a login flow or a checkout process.</li> <li>Use the <code>Monitor</code> feature to schedule and run your requests on a regular basis, this allows you to test your API's functionality that is dependent on time, such as a scheduled job or a recurring event</li> <li>Use the <code>Mocks</code> feature to simulate a response from an endpoint that is not yet implemented, this allows you to test your API's functionality that depends on other APIs, such as a third-party service or a microservice.</li> <li>Use the <code>API documentation</code> feature to generate documentation for your API, this allows you to share your API with other developers and stakeholders and communicate how your API works.</li> <li>Use the <code>API testing</code> feature to test the performance and security of your API, this allows you to test your API's performance, security and other aspects such as compliance
+Use the <code>Integration</code> feature to integrate with other tools, such as Github, Jira, and Slack, this allows you to integrate your API testing process with your development workflow and receive notifications and reports in your preferred platform</li></ul> <p>By following these tips, you can take full advantage of Postman's features and capabilities to test your API effectively and efficiently. And also you can use the Postman's cloud-based version, to share the collections and environments with your team members, and collaborate on testing and documenting your APIs.</p> <h2 id="assignment-1-basic-crud-30-mins"><a href="#assignment-1-basic-crud-30-mins" class="header-anchor">#</a> Assignment 1: Basic CRUD (30 mins)</h2> <p><a href="/s2024/deliverables/assignment1.html">Assignment 1 - Basic CRUD</a></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/30/2024, 5:58:46 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/s2024/modules/week03/" class="prev">
+        Week 3: APIs
+      </a></span> <span class="next"><a href="/s2024/modules/week05/">
+        Week 5: Middleware
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/s2024/assets/js/app.40d35fb0.js" defer></script><script src="/s2024/assets/js/2.d13f26af.js" defer></script><script src="/s2024/assets/js/1.f6f71081.js" defer></script><script src="/s2024/assets/js/46.286df3e7.js" defer></script><script src="/s2024/assets/js/32.baab7363.js" defer></script>
+  </body>
+</html>
